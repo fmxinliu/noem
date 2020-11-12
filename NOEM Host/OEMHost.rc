@@ -1,0 +1,275 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Japanese (Japan) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_JPN)
+LANGUAGE LANG_JAPANESE, SUBLANG_DEFAULT
+#pragma code_page(932)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\OEMHost.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+#endif    // Japanese (Japan) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (Simplified, PRC) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_OEMHOST_DIALOG DIALOGEX 0, 0, 383, 381
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "NOEM Host Ver 3.18"
+FONT 9, "Microsoft Sans Serif", 0, 0, 0x0
+BEGIN
+    GROUPBOX        "  Communication Information  ",IDC_GROUP_COMM_INFO,7,3,312,46,BS_CENTER | BS_FLAT
+    GROUPBOX        "Communication Mode",IDC_GROUP_CON_MODE,11,14,80,28,BS_CENTER
+    CONTROL         "Serial",IDC_RADIO_COMM_SERIAL,"Button",BS_AUTORADIOBUTTON | WS_GROUP,21,27,34,10
+    CONTROL         "Usb",IDC_RADIO_COMM_USB,"Button",BS_AUTORADIOBUTTON,58,27,29,10
+    RTEXT           "Com Port :",IDC_LB_COMPORT,101,18,31,8,NOT WS_GROUP
+    RTEXT           "Baud Rate :",IDC_LB_BAUDRATE,98,34,35,8
+    COMBOBOX        IDC_CMB_COMPORT,135,16,38,93,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_CMB_BAUDRATE,135,32,38,97,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Dst Device ID",IDC_LB_DST_DEVICE_ID,180,19,43,8
+    EDITTEXT        IDC_EDIT_DEVICE_ID,180,29,43,13,ES_AUTOHSCROLL
+    LTEXT           "Fp Count",IDC_LB_FP_COUNT,231,19,29,8
+    COMBOBOX        IDC_CMB_MAX_FP_COUNT,229,29,35,185,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "Connect",IDC_BTN_CONNECT,269,13,44,14,BS_NOTIFY
+    PUSHBUTTON      "Disconnect",IDC_BTN_DISCONNECT,269,30,44,14
+    GROUPBOX        "Language",IDC_GROUP_LANGUAGE,323,3,53,46,BS_CENTER | BS_FLAT
+    CONTROL         "ÖÐÎÄ",IDC_RADIO_CHINESE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,330,17,36,10
+    CONTROL         "English",IDC_RADIO_ENGLISH,"Button",BS_AUTORADIOBUTTON,330,29,36,10
+    GROUPBOX        "Received Result",IDC_GROUP_RECEIVED_RESULT,7,51,195,61,BS_CENTER | BS_FLAT
+    EDITTEXT        IDC_EDIT_RESULT,9,63,190,47,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL | WS_HSCROLL
+    RTEXT           "Param Type :",IDC_LB_PARAM_TYPE,21,117,42,8
+    COMBOBOX        IDC_COMBO1,66,116,80,136,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Set Param",IDC_BTN_SET_PARAM,152,116,50,14
+    RTEXT           "Param Value :",IDC_LB_PARAM_VALUE,17,134,46,8
+    EDITTEXT        IDC_EDIT1,66,132,79,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Get Param",IDC_BTN_GET_PARAM,152,131,50,14
+    LTEXT           "ID :",IDC_STATIC,18,154,11,8
+    EDITTEXT        IDC_EDIT_USER_ID,32,152,48,13,ES_AUTOHSCROLL
+    PUSHBUTTON      "Stop",IDC_BTN_STOP,87,152,36,14
+    CONTROL         "Show Image",IDC_CHK_SHOW_IMAGE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,141,150,50,10
+    CONTROL         "Advanced Led",IDC_CHK_ADVANCED_LED,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,141,162,57,10
+    CONTROL         "Secure Comm",IDC_CHK_SECURE_COMM,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,141,175,61,10
+    LTEXT           "Enroll Count :",IDC_LB_ENROLL_COUNT,18,174,43,8
+    COMBOBOX        IDC_CMB_ENROLL_COUNT,65,172,58,245,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Enroll",IDC_BTN_ENROLL,15,190,60,14
+    PUSHBUTTON      "Verify",IDC_BTN_VERIFY,78,190,60,14
+    PUSHBUTTON      "Identify",IDC_BTN_IDENTIFY,142,190,60,14
+    PUSHBUTTON      "Identify Template",IDC_BTN_IDENTIFY_TEMPLATE,14,207,60,14
+    PUSHBUTTON      "Identify Image",IDC_BTN_IDENTIFY_IMAGE,78,207,60,14
+    PUSHBUTTON      "Is Press Finger",IDC_BTN_DETECT_FINGER,142,207,60,14
+    PUSHBUTTON      "Get User Count",IDC_BTN_GET_USER_COUNT,14,225,60,14
+    PUSHBUTTON      "Delete ID",IDC_BTN_DELETE_ID,78,225,60,14
+    PUSHBUTTON      "Delete All",IDC_BTN_DELETE_ALL,142,225,60,14
+    PUSHBUTTON      "Get Empty ID",IDC_BTN_GET_EMPTY_ID,14,244,60,14
+    PUSHBUTTON      "Get Status",IDC_BTN_GET_STATUS,78,244,60,14
+    PUSHBUTTON      "Get Broken ID",IDC_BTN_GET_BROKEN_ID,142,245,60,14
+    PUSHBUTTON      "Up Template",IDC_BTN_UP_TEMPLATE,14,264,60,14
+    PUSHBUTTON      "Down Template",IDC_BTN_DOWN_TEMPLATE,78,264,60,14
+    PUSHBUTTON      "Get Device Info",IDC_BTN_GET_DEVICE_INFO,142,264,60,14
+    PUSHBUTTON      "Up Multi Tmpl",IDC_BTN_UP_MULTI_TMPL,14,283,60,14
+    PUSHBUTTON      "Down Multi Tmpl",IDC_BTN_DOWN_MULTI_TMPL,78,283,60,14
+    PUSHBUTTON      "Verify Down Tmpl",IDC_BTN_VERIFY_WITH_DOWN_TMPL,142,283,60,14
+    LTEXT           "Image Type :",IDC_LB_IMAGE_TYPE,14,304,40,8
+    COMBOBOX        IDC_COMBO2,61,303,77,81,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Up Image",IDC_BTN_UP_IMAGE,142,302,60,14
+    LTEXT           "SN :",IDC_STATIC,14,325,14,8
+    EDITTEXT        IDC_EDIT_MODULE_SN,32,323,42,13,ES_AUTOHSCROLL
+    PUSHBUTTON      "Set Module SN",IDC_BTN_SET_MODULE_SN,78,322,60,14
+    PUSHBUTTON      "Get Module SN",IDC_BTN_GET_MODULE_SN,142,322,60,14
+    PUSHBUTTON      "Enroll From Image",IDC_BTN_ENROLL_FROM_IMAGE,14,342,67,14
+    PUSHBUTTON      "Upgrade",IDC_BUTTON_UPGRADE,83,342,55,14
+    PUSHBUTTON      "Enter Standby",IDC_BTN_ENTER_STANDBY,142,342,60,14
+    PUSHBUTTON      "Get Enrolled ID List",IDC_BTN_GET_ENROLLED_ID_LIST,14,359,124,14
+    PUSHBUTTON      "Adjust Sensor",IDC_BTN_ADJUST_SENSOR,142,359,60,14
+    GROUPBOX        "Finger Image",IDC_GROUP_FINGER_IMAGE,207,51,169,155,BS_CENTER | BS_FLAT
+    CONTROL         "",IDC_WND_FINGER,"Static",SS_BLACKRECT,212,62,120,140
+    PUSHBUTTON      "Open...",IDC_BTN_OPN_FINGER_IMAGE,337,62,33,11
+    PUSHBUTTON      "Save...",IDC_BTN_SAVE_FINGER_IMAGE,337,75,33,11
+    EDITTEXT        IDC_EDT_IMG_WIDTH,337,90,33,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDT_IMG_HEIGHT,337,106,33,14,ES_AUTOHSCROLL
+    CONTROL         "Stretch",IDC_CHK_IMG_STRETCH,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,335,124,38,10
+    GROUPBOX        "Template",IDC_GROUP_TEMPLATE,207,208,169,109,BS_CENTER | BS_FLAT
+    EDITTEXT        IDC_EDIT_FP_DATA,211,218,123,94,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
+    PUSHBUTTON      "Open...",IDC_BTN_OPEN_TEMPLATE,339,218,32,11
+    PUSHBUTTON      "Save...",IDC_BTN_SAVE_TEMPLATE,339,231,32,11
+    COMBOBOX        IDC_CMB_SET_BAUDRATE,66,132,61,97,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "RTC Control",IDC_GROUP_RTC,207,319,169,56,BS_CENTER
+    CONTROL         "",IDC_DTP_DATE,"SysDateTimePick32",DTS_RIGHTALIGN | WS_TABSTOP,215,331,87,15
+    CONTROL         "",IDC_DTP_TIME,"SysDateTimePick32",DTS_RIGHTALIGN | DTS_UPDOWN | WS_TABSTOP | 0x8,309,331,57,15
+    PUSHBUTTON      "Set RTC",IDC_BTN_SET_RTC,224,353,60,14
+    PUSHBUTTON      "Get RTC",IDC_BTN_GET_RTC,297,353,60,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_OEMHOST_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 376
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 375
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // Chinese (Simplified, PRC) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\OEMHost.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 3,18,0,2507
+ PRODUCTVERSION 3,18,0,2507
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "FileDescription", "NOEM Host"
+            VALUE "FileVersion", "3.18.0.2507"
+            VALUE "InternalName", "NOEM Host Program"
+            VALUE "LegalCopyright", "Copyright (C) 2010-2019"
+            VALUE "OriginalFilename", "NOEM Host.exe"
+            VALUE "ProductName", "NOEM Host Program"
+            VALUE "ProductVersion", "3.18.0.2507"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_ABOUTBOX            "&About OEMHost..."
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif //_WIN32
+#include "res\OEMHost.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

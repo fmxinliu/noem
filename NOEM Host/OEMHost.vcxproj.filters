@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{b39e8e6f-6324-4d65-bf3e-a4191a7cb2f1}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{4152297b-a3fb-430a-98fd-1b6945996fd6}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{c8bdb401-e5e4-4980-9b2a-58399cbd35bc}</UniqueIdentifier>
+      <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+    <Filter Include="inc">
+      <UniqueIdentifier>{0483764c-2714-4d8d-be3b-f9503059dc37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ImReader">
+      <UniqueIdentifier>{4655ae5f-2ef5-4734-b3a2-e376d2e2e360}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="crypt">
+      <UniqueIdentifier>{884aa5ac-f1f0-430e-a09b-f85c60071625}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="crypt\tea">
+      <UniqueIdentifier>{1a59f496-9501-4a7c-a891-bdd642af9666}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="crypt\utils">
+      <UniqueIdentifier>{2c85aa3f-316a-47cb-9199-2dfb8a672c0f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Command.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Communication.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Device.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FingerWnd.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FolderDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OEMHost.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OEMHostDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Serial.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StdAfx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="USBCommand.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ImReader\BmpFile.cpp">
+      <Filter>ImReader</Filter>
+    </ClCompile>
+    <ClCompile Include="ImReader\ImAccess.cpp">
+      <Filter>ImReader</Filter>
+    </ClCompile>
+    <ClCompile Include="ImReader\ImageCommon.cpp">
+      <Filter>ImReader</Filter>
+    </ClCompile>
+    <ClCompile Include="crypt\crypt_user.cpp">
+      <Filter>crypt</Filter>
+    </ClCompile>
+    <ClCompile Include="crypt\base64.cpp">
+      <Filter>crypt</Filter>
+    </ClCompile>
+    <ClCompile Include="crypt\md5.cpp">
+      <Filter>crypt</Filter>
+    </ClCompile>
+    <ClCompile Include="crypt\rsa.cpp">
+      <Filter>crypt</Filter>
+    </ClCompile>
+    <ClCompile Include="crypt\tea\xtea.cpp">
+      <Filter>crypt\tea</Filter>
+    </ClCompile>
+    <ClCompile Include="crypt\utils\bigint.cpp">
+      <Filter>crypt\utils</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="OEMHost.rc">
+      <Filter>Source Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Command.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Communication.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Define.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Device.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FingerWnd.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FolderDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MyString.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OEMHost.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OEMHostDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Serial.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="spti.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StdAfx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="USBCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\devioctl.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\usb100.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\usbioctl.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="ImReader\BmpFile.h">
+      <Filter>ImReader</Filter>
+    </ClInclude>
+    <ClInclude Include="ImReader\ImageCommon.h">
+      <Filter>ImReader</Filter>
+    </ClInclude>
+    <ClInclude Include="ImReader\ImReader.h">
+      <Filter>ImReader</Filter>
+    </ClInclude>
+    <ClInclude Include="crypt\crypt_user.h">
+      <Filter>crypt</Filter>
+    </ClInclude>
+    <ClInclude Include="crypt\aes.h">
+      <Filter>crypt</Filter>
+    </ClInclude>
+    <ClInclude Include="crypt\base64.h">
+      <Filter>crypt</Filter>
+    </ClInclude>
+    <ClInclude Include="crypt\md5.h">
+      <Filter>crypt</Filter>
+    </ClInclude>
+    <ClInclude Include="crypt\rsa.h">
+      <Filter>crypt</Filter>
+    </ClInclude>
+    <ClInclude Include="crypt\tea\xtea.h">
+      <Filter>crypt\tea</Filter>
+    </ClInclude>
+    <ClInclude Include="crypt\utils\bigint.h">
+      <Filter>crypt\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="crypt\utils\random.h">
+      <Filter>crypt\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="crypt\utils\types.h">
+      <Filter>crypt\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="crypt\utils\utility.h">
+      <Filter>crypt\utils</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\OEMHost.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\OEMHost.rc2">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+</Project>
