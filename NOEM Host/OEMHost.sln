@@ -3,16 +3,38 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NOEMHost", "OEMHost.vcxproj", "{E723563E-E28E-45F4-8E9C-F9F10C6F2D2B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "..\Test\Test.csproj", "{E93A18AC-F0CA-4C59-AEE7-E2AE6B64FCCB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Mixed Platforms = Debug|Mixed Platforms
 		Debug|Win32 = Debug|Win32
+		Debug|x86 = Debug|x86
+		Release|Mixed Platforms = Release|Mixed Platforms
 		Release|Win32 = Release|Win32
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E723563E-E28E-45F4-8E9C-F9F10C6F2D2B}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{E723563E-E28E-45F4-8E9C-F9F10C6F2D2B}.Debug|Mixed Platforms.Build.0 = Debug|Win32
 		{E723563E-E28E-45F4-8E9C-F9F10C6F2D2B}.Debug|Win32.ActiveCfg = Debug|Win32
 		{E723563E-E28E-45F4-8E9C-F9F10C6F2D2B}.Debug|Win32.Build.0 = Debug|Win32
+		{E723563E-E28E-45F4-8E9C-F9F10C6F2D2B}.Debug|x86.ActiveCfg = Debug|Win32
+		{E723563E-E28E-45F4-8E9C-F9F10C6F2D2B}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{E723563E-E28E-45F4-8E9C-F9F10C6F2D2B}.Release|Mixed Platforms.Build.0 = Release|Win32
 		{E723563E-E28E-45F4-8E9C-F9F10C6F2D2B}.Release|Win32.ActiveCfg = Release|Win32
 		{E723563E-E28E-45F4-8E9C-F9F10C6F2D2B}.Release|Win32.Build.0 = Release|Win32
+		{E723563E-E28E-45F4-8E9C-F9F10C6F2D2B}.Release|x86.ActiveCfg = Release|Win32
+		{E93A18AC-F0CA-4C59-AEE7-E2AE6B64FCCB}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{E93A18AC-F0CA-4C59-AEE7-E2AE6B64FCCB}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{E93A18AC-F0CA-4C59-AEE7-E2AE6B64FCCB}.Debug|Win32.ActiveCfg = Debug|x86
+		{E93A18AC-F0CA-4C59-AEE7-E2AE6B64FCCB}.Debug|x86.ActiveCfg = Debug|x86
+		{E93A18AC-F0CA-4C59-AEE7-E2AE6B64FCCB}.Debug|x86.Build.0 = Debug|x86
+		{E93A18AC-F0CA-4C59-AEE7-E2AE6B64FCCB}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{E93A18AC-F0CA-4C59-AEE7-E2AE6B64FCCB}.Release|Mixed Platforms.Build.0 = Release|x86
+		{E93A18AC-F0CA-4C59-AEE7-E2AE6B64FCCB}.Release|Win32.ActiveCfg = Release|x86
+		{E93A18AC-F0CA-4C59-AEE7-E2AE6B64FCCB}.Release|x86.ActiveCfg = Release|x86
+		{E93A18AC-F0CA-4C59-AEE7-E2AE6B64FCCB}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
