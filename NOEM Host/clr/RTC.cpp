@@ -90,3 +90,19 @@ unsigned char RTC::Reserved::get()
 {
     return _pRTC->m_nReserved;
 }
+
+ST_RTC_TYPE* RTC::GetRTCData()
+{
+    return _pRTC;
+}
+
+void RTC::SetRTCData(ST_RTC_TYPE *rtc)
+{
+    _pRTC->m_nYear = rtc->m_nYear;
+    _pRTC->m_nMonth = rtc->m_nMonth;
+    _pRTC->m_nDay = rtc->m_nDay;
+    _pRTC->m_nHour = rtc->m_nHour;
+    _pRTC->m_nMinute = rtc->m_nMinute;
+    _pRTC->m_nSecond = rtc->m_nSecond;
+    _pRTC->m_nReserved = rtc->m_nReserved;
+}

@@ -56,7 +56,7 @@ namespace Test {
             return comm.Run_EnterStandbyState();
         }
 
-        public int Run_UpgradeFirmware(byte[] p_pData, ulong p_nSize) {
+        public int Run_UpgradeFirmware(byte[] p_pData, uint p_nSize) {
             return comm.Run_UpgradeFirmware(p_pData, p_nSize);
         }
 
@@ -119,7 +119,7 @@ namespace Test {
             return comm.Run_GetEnrollCount(p_nSTmplNo, p_nETmplNo, ref p_pnEnrollCount);
         }
 
-        public int Run_GetEnrolledIDList(ref int p_pnCount, ref int p_pnIDs) {
+        public int Run_GetEnrolledIDList(ref int p_pnCount, ref int[] p_pnIDs) {
             return comm.Run_GetEnrolledIDList(ref p_pnCount, ref p_pnIDs);
         }
 
@@ -179,7 +179,7 @@ namespace Test {
             comm.CloseConnection();
         }
 
-	    public void SetIPandPort(string strDestination, ulong dwPort) {
+	    public void SetIPandPort(string strDestination, uint dwPort) {
             comm.SetIPandPort(strDestination, dwPort);
         }
 

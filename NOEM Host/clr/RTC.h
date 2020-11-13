@@ -60,6 +60,9 @@ namespace NOEMHost
             unsigned char get();
         }
 
+        void SetRTCData(ST_RTC_TYPE *);
+        ST_RTC_TYPE* GetRTCData();
+
     private:
         ST_RTC_TYPE *_pRTC;
     };
