@@ -28,6 +28,9 @@
     <Filter Include="crypt\utils">
       <UniqueIdentifier>{2c85aa3f-316a-47cb-9199-2dfb8a672c0f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="clr">
+      <UniqueIdentifier>{49f4775e-3553-47bd-94d6-c15a3930b445}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Command.cpp">
@@ -86,6 +89,12 @@
     </ClCompile>
     <ClCompile Include="crypt\utils\bigint.cpp">
       <Filter>crypt\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="clr\CommunicationProxy.cpp">
+      <Filter>clr</Filter>
+    </ClCompile>
+    <ClCompile Include="clr\RTC.cpp">
+      <Filter>clr</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -183,6 +192,12 @@
     </ClInclude>
     <ClInclude Include="crypt\utils\utility.h">
       <Filter>crypt\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="clr\CommunicationProxy.h">
+      <Filter>clr</Filter>
+    </ClInclude>
+    <ClInclude Include="clr\RTC.h">
+      <Filter>clr</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

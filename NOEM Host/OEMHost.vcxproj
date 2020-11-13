@@ -141,6 +141,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="clr\RTC.cpp" />
+    <ClCompile Include="clr\CommunicationProxy.cpp" />
     <ClCompile Include="Command.cpp">
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -235,6 +237,8 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="clr\RTC.h" />
+    <ClInclude Include="clr\CommunicationProxy.h" />
     <ClInclude Include="Command.h" />
     <ClInclude Include="Communication.h" />
     <ClInclude Include="crypt\aes.h" />
