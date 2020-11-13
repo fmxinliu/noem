@@ -24,24 +24,24 @@ namespace NOEMHost
         int Run_GetParam(int index, int% value);
         int Run_GetDeviceInfo(String^% deviceInfo);
         int Run_SetIDNote(int index, array<BYTE>^ data);
-        int Run_GetIDNote(int index, array<BYTE>^ data);
+        int Run_GetIDNote(int index, array<BYTE>^% data);
         int Run_SetModuleSN(array<BYTE>^ data);
-        int Run_GetModuleSN(array<BYTE>^ data);
+        int Run_GetModuleSN(array<BYTE>^% data);
         int Run_SetDevPass(array<BYTE>^ data);
-        int Run_VerfiyDevPass(array<BYTE>^ data);
+        int Run_VerfiyDevPass(array<BYTE>^% data);
         int Run_EnterStandbyState(void);
         int Run_UpgradeFirmware(array<BYTE>^ data, DWORD length);
 
         int Run_GetImage(void);
         int Run_FingerDetect(int% value);
-        int Run_UpImage(int type, array<BYTE>^ data, int% width, int% height);
+        int Run_UpImage(int type, array<BYTE>^% data, int% width, int% height);
         int Run_DownImage(array<BYTE>^ data, int width, int height);
         int Run_SLEDControl(int value);
         int Run_AdjustSensor(void);
 
         int Run_StoreChar(int index, int bufferIndex, int% value);
         int Run_LoadChar(int index, int bufferIndex);
-        int Run_UpChar(int bufferIndex, array<BYTE>^ abyTemplate, unsigned int %length);
+        int Run_UpChar(int bufferIndex, array<BYTE>^% abyTemplate, unsigned int %length);
         int Run_DownChar(int bufferIndex, array<BYTE>^ abyTemplate, unsigned int length);
 
         int Run_DelChar(int stmplNo, int etmplNo);
@@ -58,9 +58,9 @@ namespace NOEMHost
         int Run_Verify(int tmplNo, int bufferIndex, int% learnResult);
 
         int Run_SetRTC(RTC^ rtc);
-        int Run_GetRTC(RTC^ rtc);
+        int Run_GetRTC(RTC^% rtc);
 
-        int Run_GetOEMRSAPubKey(array<BYTE>^ cryptN, array<BYTE>^ cryptE, int %keySizeByte);
+        int Run_GetOEMRSAPubKey(array<BYTE>^% cryptN, array<BYTE>^% cryptE, int %keySizeByte);
         int Run_SetHostRSAPubKey(array<BYTE>^ cryptN, array<BYTE>^ cryptE, int keySizeByte);
 
         int InitConnection(int mode, String^ port, int baudRate, BYTE srcDeviceID, BYTE DstDeviceID);

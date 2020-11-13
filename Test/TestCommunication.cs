@@ -32,24 +32,24 @@ namespace Test {
             return comm.Run_SetIDNote(p_nTmplNo, pNote);
         }
 
-        public int Run_GetIDNote(int p_nTmplNo, byte[] pNote) {
-            return comm.Run_GetIDNote(p_nTmplNo, pNote);
+        public int Run_GetIDNote(int p_nTmplNo, ref byte[] pNote) {
+            return comm.Run_GetIDNote(p_nTmplNo, ref pNote);
         }
 
         public int Run_SetModuleSN(byte[] pModuleSN) {
             return comm.Run_SetModuleSN(pModuleSN);
         }
 
-        public int Run_GetModuleSN(byte[] pModuleSN) {
-            return comm.Run_GetModuleSN(pModuleSN);
+        public int Run_GetModuleSN(ref byte[] pModuleSN) {
+            return comm.Run_GetModuleSN(ref pModuleSN);
         }
 
         public int Run_SetDevPass(byte[] pDevPass) {
             return comm.Run_SetDevPass(pDevPass);
         }
 
-        public int Run_VerfiyDevPass(byte[] pDevPass) {
-            return comm.Run_VerfiyDevPass(pDevPass);
+        public int Run_VerfiyDevPass(ref byte[] pDevPass) {
+            return comm.Run_VerfiyDevPass(ref pDevPass);
         }
 
         public int Run_EnterStandbyState() {
@@ -68,8 +68,8 @@ namespace Test {
             return comm.Run_FingerDetect(ref p_pnDetectResult);
         }
 
-        public int Run_UpImage(int p_nType, byte[] p_pData, ref int p_pnImgWidth, ref int p_pnImgHeight) {
-            return comm.Run_UpImage(p_nType, p_pData, ref p_pnImgWidth, ref p_pnImgHeight);
+        public int Run_UpImage(int p_nType, ref byte[] p_pData, ref int p_pnImgWidth, ref int p_pnImgHeight) {
+            return comm.Run_UpImage(p_nType, ref p_pData, ref p_pnImgWidth, ref p_pnImgHeight);
         }
 
         public int Run_DownImage(byte[] p_pData, int p_nWidth, int p_nHeight) {
@@ -92,8 +92,8 @@ namespace Test {
             return comm.Run_LoadChar(p_nTmplNo, p_nRamBufferID);
         }
 
-        public int Run_UpChar(int p_nRamBufferID, byte[] p_pbyTemplate, ref uint p_pnSize) {
-            return comm.Run_UpChar(p_nRamBufferID, p_pbyTemplate, ref p_pnSize);
+        public int Run_UpChar(int p_nRamBufferID, ref byte[] p_pbyTemplate, ref uint p_pnSize) {
+            return comm.Run_UpChar(p_nRamBufferID, ref p_pbyTemplate, ref p_pnSize);
         }
 
         public int Run_DownChar(int p_nRamBufferID, byte[] p_pbyTemplate, uint p_nSize) {
@@ -147,12 +147,12 @@ namespace Test {
             return comm.Run_SetRTC(p_stRTCInfo);
         }
 
-        public int Run_GetRTC(RTC p_stRTCInfo) {
-            return comm.Run_GetRTC(p_stRTCInfo);
+        public int Run_GetRTC(ref RTC p_stRTCInfo) {
+            return comm.Run_GetRTC(ref p_stRTCInfo);
         }
 
-        public int Run_GetOEMRSAPubKey(byte[] p_pCryptRemoteN, byte[] p_pCryptRemoteE, ref int p_nKeySizeByte) {
-            return comm.Run_GetOEMRSAPubKey(p_pCryptRemoteN, p_pCryptRemoteE, ref p_nKeySizeByte);
+        public int Run_GetOEMRSAPubKey(ref byte[] p_pCryptRemoteN, ref byte[] p_pCryptRemoteE, ref int p_nKeySizeByte) {
+            return comm.Run_GetOEMRSAPubKey(ref p_pCryptRemoteN, ref p_pCryptRemoteE, ref p_nKeySizeByte);
         }
 
 	    public int Run_SetHostRSAPubKey(byte[] p_pCryptN, byte[] p_pCryptE, int p_nKeySizeByte) {

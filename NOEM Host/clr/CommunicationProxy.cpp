@@ -89,7 +89,7 @@ int	Communication::Run_SetIDNote(int index, array<BYTE>^ data)
 }
 /************************************************************************/
 /************************************************************************/
-int	Communication::Run_GetIDNote(int index, array<BYTE>^ data)
+int	Communication::Run_GetIDNote(int index, array<BYTE>^% data)
 {
     GET_COMMAND_START(pValue, ID_NOTE_SIZE);
     int ret = _pcomm->Run_GetIDNote(index, pValue);
@@ -105,7 +105,7 @@ int	Communication::Run_SetModuleSN(array<BYTE>^ data)
 }
 /************************************************************************/
 /************************************************************************/
-int	Communication::Run_GetModuleSN(array<BYTE>^ data)
+int	Communication::Run_GetModuleSN(array<BYTE>^% data)
 {
     GET_COMMAND_START(pValue, MODULE_SN_LEN);
     int ret = _pcomm->Run_GetModuleSN(pValue);
@@ -121,7 +121,7 @@ int	Communication::Run_SetDevPass(array<BYTE>^ data)
 }
 /************************************************************************/
 /************************************************************************/
-int	Communication::Run_VerfiyDevPass(array<BYTE>^ data)
+int	Communication::Run_VerfiyDevPass(array<BYTE>^% data)
 {
     GET_COMMAND_START(pValue, MAX_DEVPASS_LEN);
     int ret = _pcomm->Run_VerfiyDevPass(pValue);
@@ -159,7 +159,7 @@ int	Communication::Run_FingerDetect(int% paramValue)
 /************************************************************************/
 /************************************************************************/
 #define IMAGE_BUFFER_SIZE 100000 // max size : 300*300
-int Communication::Run_UpImage(int type, array<BYTE>^ data, int% width, int% height)
+int Communication::Run_UpImage(int type, array<BYTE>^% data, int% width, int% height)
 {
     int w = 0, h = 0;
     GET_COMMAND_START(pValue, IMAGE_BUFFER_SIZE);
@@ -205,7 +205,7 @@ int	Communication::Run_LoadChar(int index, int bufferIndex)
 }
 /************************************************************************/
 /************************************************************************/
-int	Communication::Run_UpChar(int index, array<BYTE>^ data, unsigned int %length)
+int	Communication::Run_UpChar(int index, array<BYTE>^% data, unsigned int %length)
 {
     unsigned int nSize = 0;
     GET_COMMAND_START(pValue, MAX_TEMPLATE_SIZE);
@@ -331,7 +331,7 @@ int Communication::Run_SetRTC(RTC^ rtc)
 }
 /************************************************************************/
 /************************************************************************/
-int Communication::Run_GetRTC(RTC^ rtc)
+int Communication::Run_GetRTC(RTC^% rtc)
 {
     ST_RTC_TYPE data;
     int ret = _pcomm->Run_GetRTC(&data);
@@ -343,7 +343,7 @@ int Communication::Run_GetRTC(RTC^ rtc)
 }
 /************************************************************************/
 /************************************************************************/
-int Communication::Run_GetOEMRSAPubKey(array<BYTE>^ cryptN, array<BYTE>^ cryptE, int %keySizeByte)
+int Communication::Run_GetOEMRSAPubKey(array<BYTE>^% cryptN, array<BYTE>^% cryptE, int %keySizeByte)
 {
     int keySize = 0;
     BYTE *pValueN = new BYTE[CRYPT_DEF_RSA_BYTE];
@@ -398,7 +398,7 @@ bool Communication::EnableCommunicaton(int devNum, bool verifyDeviceID, array<BY
 {
     BYTE *pValue = new BYTE[devPwd->Length];
     int ret = _pcomm->EnableCommunicaton(devNum, verifyDeviceID, pValue, msgOut);
-    delete pValue;
+    delete[] pValue;
     return !!ret;
 }
 /************************************************************************/
