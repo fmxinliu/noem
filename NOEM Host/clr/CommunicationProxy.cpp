@@ -13,7 +13,7 @@ static char THIS_FILE[]=__FILE__;
     BYTE *pValue = new BYTE[size];
 
 #define GET_COMMAND_END(pValue, data, ret)          \
-    if (ret) {                                      \
+    if (!ret) {                                     \
         data = gcnew array<BYTE>(size);             \
         for (int i = 0;i < size;i++)                \
             data[i] = pValue[i];                    \
@@ -32,6 +32,11 @@ static char THIS_FILE[]=__FILE__;
     delete[] pValue;                                \
     pValue = NULL;                                  \
     return ret;
+
+#define HOLD_VALUE(destValue, srcValue, ret)        \
+    if (!ret) {                                     \
+        destValue = srcValue;                       \
+    }
 
 
 using namespace NOEMHost;
@@ -67,7 +72,7 @@ int Communication::Run_GetParam(int index, int% paramValue)
 {
     int value = 0;
     int ret = _pcomm->Run_GetParam(index, &value);
-    paramValue = value;
+    HOLD_VALUE(paramValue, value, ret);
     return ret;
 }
 /************************************************************************/
@@ -76,7 +81,7 @@ int Communication::Run_GetDeviceInfo(String^% deviceInfo)
 {
     char szDeviceInfo[256] = {};
     int ret = _pcomm->Run_GetDeviceInfo(szDeviceInfo);
-    deviceInfo = marshal_as<String^>(szDeviceInfo);
+    HOLD_VALUE(deviceInfo, marshal_as<String^>(szDeviceInfo), ret);
     return ret;
 }
 /***************************************************************************/
@@ -153,7 +158,7 @@ int	Communication::Run_FingerDetect(int% paramValue)
 {
     int value = 0;
     int ret = _pcomm->Run_FingerDetect(&value);
-    paramValue = value;
+    HOLD_VALUE(paramValue, value, ret);
     return ret;
 }
 /************************************************************************/
@@ -164,8 +169,8 @@ int Communication::Run_UpImage(int type, array<BYTE>^% data, int% width, int% he
     int w = 0, h = 0;
     GET_COMMAND_START(pValue, IMAGE_BUFFER_SIZE);
     int ret = _pcomm->Run_UpImage(type, pValue, &w, &h);
-    width = w;
-    height = h;
+    HOLD_VALUE(width, w, ret);
+    HOLD_VALUE(height, h, ret);
     GET_COMMAND_END(pValue, data, ret);
 }
 /************************************************************************/
@@ -194,7 +199,7 @@ int	Communication::Run_StoreChar(int index, int bufferIndex, int% paramValue)
 {
     int value = 0;
     int ret = _pcomm->Run_StoreChar(index, bufferIndex, &value);
-    paramValue = value;
+    HOLD_VALUE(paramValue, value, ret);
     return ret;
 }
 /************************************************************************/
@@ -210,7 +215,7 @@ int	Communication::Run_UpChar(int index, array<BYTE>^% data, unsigned int %lengt
     unsigned int nSize = 0;
     GET_COMMAND_START(pValue, MAX_TEMPLATE_SIZE);
     int ret = _pcomm->Run_UpChar(index, pValue, &nSize);
-    length = nSize;
+    HOLD_VALUE(length, nSize, ret);
     GET_COMMAND_END(pValue, data, ret);
 }
 /************************************************************************/
@@ -233,7 +238,7 @@ int Communication::Run_GetEmptyID(int stmplNo, int etmplNo, int% emptyID)
 {
     int value = 0;
     int ret = _pcomm->Run_GetEmptyID(stmplNo, etmplNo, &value);
-    emptyID = value;
+    HOLD_VALUE(emptyID, value, ret);
     return ret;
 }
 /************************************************************************/
@@ -242,7 +247,7 @@ int Communication::Run_GetStatus(int tmplNo, int% status)
 {
     int value = 0;
     int ret = _pcomm->Run_GetStatus(tmplNo, &value);
-    status = value;
+    HOLD_VALUE(status, value, ret);
     return ret;
 }
 /************************************************************************/
@@ -251,8 +256,8 @@ int Communication::Run_GetBrokenID(int stmplNo, int etmplNo, int% count, int% fi
 {
     int value1 = 0, value2 = 0;
     int ret = _pcomm->Run_GetBrokenID(stmplNo, etmplNo, &value1, &value2);
-    count = value1;
-    firstID = value2;
+    HOLD_VALUE(count, value1, ret);
+    HOLD_VALUE(firstID, value2, ret);
     return ret;
 }
 /************************************************************************/
@@ -261,7 +266,7 @@ int Communication::Run_GetEnrollCount(int stmplNo, int etmplNo, int% enrollCount
 {
     int value = 0;
     int ret = _pcomm->Run_GetEnrollCount(stmplNo, etmplNo, &value);
-    enrollCount = value;
+    HOLD_VALUE(enrollCount, value, ret);
     return ret;
 }
 /************************************************************************/
@@ -272,8 +277,8 @@ int Communication::Run_GetEnrolledIDList(int% length, array<int>^% data)
     int count = 5000;
     int *pValue = new int[count];
     int ret = _pcomm->Run_GetEnrolledIDList(&value, pValue);
-    length = value;
-    if (ret) {
+    if (!ret) {
+        length = value;
         data = gcnew array<int>(value);
         for (int i = 0;i < length;++i) {
             data[i] = pValue[i];
@@ -301,7 +306,7 @@ int Communication::Run_Match(int bufferIndex0, int bufferIndex1, int% learnResul
 {
     int value = 0;
     int ret = _pcomm->Run_Match(bufferIndex0, bufferIndex1, &value);
-    learnResult = value;
+    HOLD_VALUE(learnResult, value, ret);
     return ret;
 }
 /************************************************************************/
@@ -310,8 +315,8 @@ int Communication::Run_Search(int bufferIndex, int startID, int searchCount, int
 {
     int value1 = 0, value2 = 0;
     int ret = _pcomm->Run_Search(bufferIndex, startID, searchCount, &value1, &value2);
-    tmplNo = value1;
-    learnResult = value2;
+    HOLD_VALUE(tmplNo, value1, ret);
+    HOLD_VALUE(learnResult, value2, ret);
     return ret;
 }
 /************************************************************************/
@@ -320,7 +325,7 @@ int Communication::Run_Verify(int tmplNo, int bufferIndex, int% learnResult)
 {
     int value = 0;
     int ret = _pcomm->Run_Verify(tmplNo, bufferIndex, &value);
-    learnResult = value;
+    HOLD_VALUE(learnResult, value, ret);
     return ret;
 }
 /************************************************************************/
@@ -335,7 +340,7 @@ int Communication::Run_GetRTC(RTC^% rtc)
 {
     ST_RTC_TYPE data;
     int ret = _pcomm->Run_GetRTC(&data);
-    if (ret) {
+    if (!ret) {
         rtc = gcnew RTC;
         rtc->SetRTCData(&data);
     }
@@ -353,7 +358,8 @@ int Communication::Run_GetOEMRSAPubKey(array<BYTE>^% cryptN, array<BYTE>^% crypt
     memset(pValueE, 0x00, CRYPT_DEF_RSA_BYTE);
 
     int ret = _pcomm->Run_GetOEMRSAPubKey(pValueN, pValueE, &keySize);
-    if (ret) {
+    if (!ret) {
+        keySizeByte = keySize;
         cryptN = gcnew array<BYTE>(keySize);
         cryptE = gcnew array<BYTE>(keySize);
         for (int i = 0;i < keySize;++i) {
@@ -361,8 +367,6 @@ int Communication::Run_GetOEMRSAPubKey(array<BYTE>^% cryptN, array<BYTE>^% crypt
             cryptE[i] = pValueE[i];
         }
     }
-
-    keySizeByte = keySize;
     delete[] pValueN;
     delete[] pValueE;
     return ret;
