@@ -56,8 +56,8 @@ namespace Test {
             return comm.Run_EnterStandbyState();
         }
 
-        public int Run_UpgradeFirmware(byte[] p_pData, uint p_nSize) {
-            return comm.Run_UpgradeFirmware(p_pData, p_nSize);
+        public int Run_UpgradeFirmware(byte[] p_pData, int p_nSize) {
+            return comm.Run_UpgradeFirmware(p_pData, (uint)p_nSize);
         }
 
         public int Run_GetImage() {
@@ -92,12 +92,21 @@ namespace Test {
             return comm.Run_LoadChar(p_nTmplNo, p_nRamBufferID);
         }
 
-        public int Run_UpChar(int p_nRamBufferID, ref byte[] p_pbyTemplate, ref uint p_pnSize) {
-            return comm.Run_UpChar(p_nRamBufferID, ref p_pbyTemplate, ref p_pnSize);
+        /// <summary>
+        /// 注意类型转换
+        /// </summary>
+        public int Run_UpChar(int p_nRamBufferID, ref byte[] p_pbyTemplate, ref int p_pnSize) {
+            uint uSize = (uint)p_pnSize;
+            int ret = comm.Run_UpChar(p_nRamBufferID, ref p_pbyTemplate, ref uSize);
+            p_pnSize = (int)uSize;
+            return ret;
         }
 
-        public int Run_DownChar(int p_nRamBufferID, byte[] p_pbyTemplate, uint p_nSize) {
-            return comm.Run_DownChar(p_nRamBufferID, p_pbyTemplate,  p_nSize);
+        /// <summary>
+        /// 注意类型转换
+        /// </summary>
+        public int Run_DownChar(int p_nRamBufferID, byte[] p_pbyTemplate, int p_nSize) {
+            return comm.Run_DownChar(p_nRamBufferID, p_pbyTemplate, (uint)p_nSize);
         }
 
         public int Run_DelChar(int p_nSTmplNo, int p_nETmplNo) {
@@ -155,7 +164,7 @@ namespace Test {
             return comm.Run_GetOEMRSAPubKey(ref p_pCryptRemoteN, ref p_pCryptRemoteE, ref p_nKeySizeByte);
         }
 
-	    public int Run_SetHostRSAPubKey(byte[] p_pCryptN, byte[] p_pCryptE, int p_nKeySizeByte) {
+        public int Run_SetHostRSAPubKey(byte[] p_pCryptN, byte[] p_pCryptE, int p_nKeySizeByte) {
             return comm.Run_SetHostRSAPubKey(p_pCryptN, p_pCryptE, p_nKeySizeByte);
         }
 
@@ -171,19 +180,25 @@ namespace Test {
             return comm.OpenSerialPort(p_strComPortIndex, p_nBaudRateIndex);
         }
 
-        public bool Run_Command_NP(ushort p_wCMD) {
-            return comm.Run_Command_NP(p_wCMD);
+        /// <summary>
+        /// 注意类型转换
+        /// </summary>
+        public bool Run_Command_NP(int p_wCMD) {
+            return comm.Run_Command_NP((ushort)p_wCMD);
         }
 
         public void CloseConnection() {
             comm.CloseConnection();
         }
 
-	    public void SetIPandPort(string strDestination, uint dwPort) {
-            comm.SetIPandPort(strDestination, dwPort);
+        /// <summary>
+        /// 注意类型转换
+        /// </summary>
+        public void SetIPandPort(string strDestination, int dwPort) {
+            comm.SetIPandPort(strDestination, (uint)dwPort);
         }
 
-	    public void SetCallbackWnd(IntPtr hWnd) {
+        public void SetCallbackWnd(IntPtr hWnd) {
             comm.SetCallbackWnd(hWnd);
         }
     }
