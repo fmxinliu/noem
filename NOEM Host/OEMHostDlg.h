@@ -64,6 +64,7 @@ public:
 	BOOL		m_bSecureComm;
 	CDateTimeCtrl m_dtpDate;
 	CDateTimeCtrl m_dtpTime;
+	NOTIFYICONDATA m_nid;
 
 public:
 	BOOL	CheckUserID();
@@ -78,6 +79,8 @@ public:
 	CString ConvertByteToHex( BYTE* pBuff, int nSize, int nWidthSize );
 
 	void	DoLedCtrl(unsigned char p_nCtrlCode);
+	void    ShowTray();
+	void    HideTray();
 
 // Overrides
 	// ClassWizard generated virtual function overrides
@@ -140,6 +143,7 @@ protected:
 	afx_msg void OnBnClickedBtnUpMultiTmpl();
 	afx_msg void OnBnClickedBtnSetRtc();
 	afx_msg void OnBnClickedBtnGetRtc();
+	afx_msg LRESULT OnShowTask(WPARAM wParam, LPARAM lParam);
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

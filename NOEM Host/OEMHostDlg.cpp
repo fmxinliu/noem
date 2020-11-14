@@ -10,6 +10,8 @@
 #include "ImReader/ImReader.h"
 #include <mmsystem.h>
 
+#define WM_SHOWTASK WM_USER + 100 // 托盘点击消息
+
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #undef THIS_FILE
@@ -195,7 +197,6 @@ BEGIN_MESSAGE_MAP(COEMHostDlg, CDialog)
 	ON_BN_CLICKED(IDC_BTN_VERIFY_WITH_DOWN_TMPL, OnBtnVerifyWithDownTmpl)
 	ON_BN_CLICKED(IDC_BTN_SET_MODULE_SN, OnBtnSetModuleSn)
 	ON_BN_CLICKED(IDC_BTN_GET_MODULE_SN, OnBtnGetModuleSn)
-	//}}AFX_MSG_MAP
 	ON_CBN_SELCHANGE(IDC_CMB_MAX_FP_COUNT, &COEMHostDlg::OnCbnSelchangeCmbMaxFpCount)
 	ON_BN_CLICKED(IDC_RADIO_CHINESE, &COEMHostDlg::OnBnClickedRadioChinese)
 	ON_BN_CLICKED(IDC_RADIO_ENGLISH, &COEMHostDlg::OnBnClickedRadioEnglish)
@@ -207,6 +208,8 @@ BEGIN_MESSAGE_MAP(COEMHostDlg, CDialog)
 	ON_BN_CLICKED(IDC_BTN_UP_MULTI_TMPL, &COEMHostDlg::OnBnClickedBtnUpMultiTmpl)
 	ON_BN_CLICKED(IDC_BTN_SET_RTC, &COEMHostDlg::OnBnClickedBtnSetRtc)
 	ON_BN_CLICKED(IDC_BTN_GET_RTC, &COEMHostDlg::OnBnClickedBtnGetRtc)
+    ON_MESSAGE(WM_SHOWTASK, &COEMHostDlg::OnShowTask)
+    //}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -215,7 +218,7 @@ END_MESSAGE_MAP()
 BOOL COEMHostDlg::DestroyWindow() 
 {
 	// TODO: Add your specialized code here and/or call the base class
-	
+	HideTray();
 	return CDialog::DestroyWindow();
 }
 
@@ -225,6 +228,7 @@ BOOL COEMHostDlg::OnInitDialog()
 
 	SetIcon(m_hIcon, TRUE);			// Set big icon
 	SetIcon(m_hIcon, FALSE);		// Set small icon
+    ShowTray();
 
 	// TODO: Add extra initialization here
 	InitControl();	
@@ -3149,4 +3153,61 @@ void COEMHostDlg::OnBnClickedBtnGetRtc()
 
 	// update data to ui
 	UpdateData(FALSE);
+}
+
+// wParam 接收的是图标的ID，lParam 接收的是鼠标的行为
+afx_msg LRESULT COEMHostDlg::OnShowTask(WPARAM wParam, LPARAM lParam)
+{
+    if(wParam != IDR_MAINFRAME)
+        return 1;
+
+    switch (lParam)
+    {
+    case WM_RBUTTONUP: // 右键弹出快捷菜单
+        {
+            CPoint pt;
+            GetCursorPos(&pt); // 得到鼠标位置
+            CMenu menu;
+            //menu.LoadMenu(IDR_MENU1);
+            //CMenu *pPopUp = menu.GetSubMenu(0);
+            //pPopUp->TrackPopupMenu(TPM_LEFTALIGN, pt.x, pt.y, this);
+            menu.CreatePopupMenu(); // 声明一个弹出式菜单
+            // 增加菜单项“关闭”，点击则发送消息 WM_DESTROY 给主窗口（已隐藏），将程序结束
+            menu.AppendMenu(MF_STRING, WM_DESTROY, _T("退出"));
+            SetForegroundWindow();
+            // 确定弹出式菜单的位置
+            menu.TrackPopupMenu(TPM_LEFTALIGN, pt.x, pt.y, this);
+            // 资源回收
+            HMENU hmenu = menu.Detach();
+            menu.DestroyMenu();
+        }
+        break;
+    case WM_LBUTTONDBLCLK: // 双击左键的处理
+        {
+            if (IsIconic())
+                ShowWindow(SW_RESTORE); // 最小化时，恢复显示
+            else if (IsZoomed())
+                ShowWindow(SW_SHOWNORMAL);  // 最大化时，恢复正常尺寸
+            SetForegroundWindow(); // 置为前台窗口
+        }
+        break;
+    }
+    return 0;
+}
+
+void COEMHostDlg::ShowTray()
+{
+    m_nid.cbSize  = (DWORD)sizeof(NOTIFYICONDATA);
+    m_nid.hWnd    = this->m_hWnd;
+    m_nid.uID     = IDR_MAINFRAME;
+    m_nid.uFlags  = NIF_ICON | NIF_MESSAGE | NIF_TIP;
+    m_nid.uCallbackMessage = WM_SHOWTASK;           // 点击托盘图标，发送的消息
+    m_nid.hIcon   = LoadIcon(AfxGetInstanceHandle(), MAKEINTRESOURCE(IDR_MAINFRAME));
+    _tcscpy_s(m_nid.szTip, _T("NOEM Host"));        // 鼠标悬停显示的内容
+    Shell_NotifyIcon(NIM_ADD, &m_nid);              // 在托盘区添加图标
+}
+
+void COEMHostDlg::HideTray()
+{
+    Shell_NotifyIcon(NIM_DELETE, &m_nid);
 }
