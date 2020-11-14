@@ -168,16 +168,16 @@ namespace Test {
             return comm.Run_SetHostRSAPubKey(p_pCryptN, p_pCryptE, p_nKeySizeByte);
         }
 
-        public int InitConnection(int p_nConMode, string p_strComPort, int p_nBaudRate, byte p_bySrcDeviceID, byte p_byDstDeviceID) {
-            return comm.InitConnection(p_nConMode, p_strComPort, p_nBaudRate, p_bySrcDeviceID, p_byDstDeviceID);
+        public int InitConnection(int p_nConMode, string p_strComPort, BaudRateIndex p_nBaudRateIndex, byte p_bySrcDeviceID, byte p_byDstDeviceID) {
+            return comm.InitConnection(p_nConMode, p_strComPort, (int)p_nBaudRateIndex, p_bySrcDeviceID, p_byDstDeviceID);
         }
 
         public bool EnableCommunicaton(int p_nDevNum, bool p_bVerifyDeviceID, byte[] p_pDevPwd, bool p_bMsgOut) {
             return comm.EnableCommunicaton(p_nDevNum, p_bVerifyDeviceID, p_pDevPwd, p_bMsgOut);
         }
 
-        public bool OpenSerialPort(string p_strComPortIndex, int p_nBaudRateIndex) {
-            return comm.OpenSerialPort(p_strComPortIndex, p_nBaudRateIndex);
+        public bool OpenSerialPort(string p_strComPortIndex, BaudRateIndex p_nBaudRateIndex) {
+            return comm.OpenSerialPort(p_strComPortIndex, (int)p_nBaudRateIndex);
         }
 
         /// <summary>
@@ -201,5 +201,9 @@ namespace Test {
         public void SetCallbackWnd(IntPtr hWnd) {
             comm.SetCallbackWnd(hWnd);
         }
+    }
+
+    public enum BaudRateIndex {
+        BAUD9600 = 1, BAUD19200, BAUD38400, BAUD57600, BAUD115200, BAUD230400, BAUD460800, BAUD921600
     }
 }

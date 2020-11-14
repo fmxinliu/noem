@@ -38,7 +38,6 @@ static char THIS_FILE[]=__FILE__;
         destValue = srcValue;                       \
     }
 
-
 using namespace NOEMHost;
 
 /************************************************************************/
@@ -86,7 +85,7 @@ int Communication::Run_GetDeviceInfo(String^% deviceInfo)
 }
 /***************************************************************************/
 /***************************************************************************/
-int	Communication::Run_SetIDNote(int index, array<BYTE>^ data)
+int Communication::Run_SetIDNote(int index, array<BYTE>^ data)
 {
     SET_COMMAND_START(data, pValue);
     int ret = _pcomm->Run_SetIDNote(index, pValue);
@@ -94,7 +93,7 @@ int	Communication::Run_SetIDNote(int index, array<BYTE>^ data)
 }
 /************************************************************************/
 /************************************************************************/
-int	Communication::Run_GetIDNote(int index, array<BYTE>^% data)
+int Communication::Run_GetIDNote(int index, array<BYTE>^% data)
 {
     GET_COMMAND_START(pValue, ID_NOTE_SIZE);
     int ret = _pcomm->Run_GetIDNote(index, pValue);
@@ -102,7 +101,7 @@ int	Communication::Run_GetIDNote(int index, array<BYTE>^% data)
 }
 /************************************************************************/
 /************************************************************************/
-int	Communication::Run_SetModuleSN(array<BYTE>^ data)
+int Communication::Run_SetModuleSN(array<BYTE>^ data)
 {
     SET_COMMAND_START(data, pValue);
     int ret = _pcomm->Run_SetModuleSN(pValue);
@@ -110,7 +109,7 @@ int	Communication::Run_SetModuleSN(array<BYTE>^ data)
 }
 /************************************************************************/
 /************************************************************************/
-int	Communication::Run_GetModuleSN(array<BYTE>^% data)
+int Communication::Run_GetModuleSN(array<BYTE>^% data)
 {
     GET_COMMAND_START(pValue, MODULE_SN_LEN);
     int ret = _pcomm->Run_GetModuleSN(pValue);
@@ -118,7 +117,7 @@ int	Communication::Run_GetModuleSN(array<BYTE>^% data)
 }
 /************************************************************************/
 /************************************************************************/
-int	Communication::Run_SetDevPass(array<BYTE>^ data)
+int Communication::Run_SetDevPass(array<BYTE>^ data)
 {
     SET_COMMAND_START(data, pValue);
     int ret = _pcomm->Run_SetDevPass(pValue);
@@ -126,7 +125,7 @@ int	Communication::Run_SetDevPass(array<BYTE>^ data)
 }
 /************************************************************************/
 /************************************************************************/
-int	Communication::Run_VerfiyDevPass(array<BYTE>^% data)
+int Communication::Run_VerfiyDevPass(array<BYTE>^% data)
 {
     GET_COMMAND_START(pValue, MAX_DEVPASS_LEN);
     int ret = _pcomm->Run_VerfiyDevPass(pValue);
@@ -134,13 +133,13 @@ int	Communication::Run_VerfiyDevPass(array<BYTE>^% data)
 }
 /************************************************************************/
 /************************************************************************/
-int	Communication::Run_EnterStandbyState()
+int Communication::Run_EnterStandbyState()
 {
     return _pcomm->Run_EnterStandbyState();
 }
 /************************************************************************/
 /************************************************************************/
-int	Communication::Run_UpgradeFirmware(array<BYTE>^ data, DWORD length)
+int Communication::Run_UpgradeFirmware(array<BYTE>^ data, DWORD length)
 {
     SET_COMMAND_START(data, pValue);
     int ret = _pcomm->Run_UpgradeFirmware(pValue, length);
@@ -148,13 +147,13 @@ int	Communication::Run_UpgradeFirmware(array<BYTE>^ data, DWORD length)
 }
 /************************************************************************/
 /************************************************************************/
-int	Communication::Run_GetImage()
+int Communication::Run_GetImage()
 {
     return _pcomm->Run_GetImage();
 }
 /************************************************************************/
 /************************************************************************/
-int	Communication::Run_FingerDetect(int% paramValue)
+int Communication::Run_FingerDetect(int% paramValue)
 {
     int value = 0;
     int ret = _pcomm->Run_FingerDetect(&value);
@@ -175,7 +174,7 @@ int Communication::Run_UpImage(int type, array<BYTE>^% data, int% width, int% he
 }
 /************************************************************************/
 /************************************************************************/
-int	Communication::Run_DownImage(array<BYTE>^ data, int width, int height)
+int Communication::Run_DownImage(array<BYTE>^ data, int width, int height)
 {
     SET_COMMAND_START(data, pValue);
     int ret = _pcomm->Run_DownImage(pValue, width, height);
@@ -183,19 +182,19 @@ int	Communication::Run_DownImage(array<BYTE>^ data, int width, int height)
 }
 /************************************************************************/
 /************************************************************************/
-int	Communication::Run_SLEDControl(int value)
+int Communication::Run_SLEDControl(int value)
 {
     return _pcomm->Run_SLEDControl(value);
 }
 /************************************************************************/
 /************************************************************************/
-int	Communication::Run_AdjustSensor(void)
+int Communication::Run_AdjustSensor(void)
 {
     return _pcomm->Run_AdjustSensor();
 }
 /************************************************************************/
 /************************************************************************/
-int	Communication::Run_StoreChar(int index, int bufferIndex, int% paramValue)
+int Communication::Run_StoreChar(int index, int bufferIndex, int% paramValue)
 {
     int value = 0;
     int ret = _pcomm->Run_StoreChar(index, bufferIndex, &value);
@@ -204,13 +203,13 @@ int	Communication::Run_StoreChar(int index, int bufferIndex, int% paramValue)
 }
 /************************************************************************/
 /************************************************************************/
-int	Communication::Run_LoadChar(int index, int bufferIndex)
+int Communication::Run_LoadChar(int index, int bufferIndex)
 {
     return _pcomm->Run_LoadChar(index, bufferIndex);
 }
 /************************************************************************/
 /************************************************************************/
-int	Communication::Run_UpChar(int index, array<BYTE>^% data, unsigned int %length)
+int Communication::Run_UpChar(int index, array<BYTE>^% data, unsigned int %length)
 {
     unsigned int nSize = 0;
     GET_COMMAND_START(pValue, MAX_TEMPLATE_SIZE);
@@ -220,7 +219,7 @@ int	Communication::Run_UpChar(int index, array<BYTE>^% data, unsigned int %lengt
 }
 /************************************************************************/
 /************************************************************************/
-int	Communication::Run_DownChar(int index, array<BYTE>^ data, unsigned int length)
+int Communication::Run_DownChar(int index, array<BYTE>^ data, unsigned int length)
 {
     SET_COMMAND_START(data, pValue);
     int ret = _pcomm->Run_DownChar(index, pValue, length);

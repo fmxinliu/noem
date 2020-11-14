@@ -113,11 +113,11 @@ namespace Test {
             int v37 = 3;
             testObj.Run_SetHostRSAPubKey(d37_1, d37_2, v37);
             // 38.
-            testObj.InitConnection(0, "COM1", 9600, 0, 1);
+            testObj.InitConnection(0, "COM1", BaudRateIndex.BAUD9600, 0, 1);
             // 39.
             testObj.EnableCommunicaton(2, true, Encoding.ASCII.GetBytes("123"), true);
             // 40.
-            testObj.OpenSerialPort("COM2", 1);
+            testObj.OpenSerialPort("COM2", BaudRateIndex.BAUD9600);
             // 41.
             testObj.Run_Command_NP(999);
             // 42.
